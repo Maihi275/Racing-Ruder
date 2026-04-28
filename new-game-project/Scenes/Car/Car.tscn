@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dxho5p4oad2c4"]
+
+[ext_resource type="Texture2D" uid="uid://dr8u06xrl4yv6" path="res://Assets/Images/CarPurple.png" id="1_fnsqd"]
+
+[node name="Car" type="Area2D"]
+rotation = 1.5708
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 0.794125
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_fnsqd")

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://buid5ap3krkxj"]
+
+[ext_resource type="Texture2D" uid="uid://y8hkki1xfqn6" path="res://Assets/Images/Monza.png" id="1_fv5kj"]
+[ext_resource type="Texture2D" uid="uid://kigupso6340n" path="res://Assets/Images/DirtBg.png" id="1_okhpi"]
+
+[node name="Track" type="Node"]
+
+[node name="Backround" type="Sprite2D" parent="."]
+position = Vector2(653, 418)
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("1_okhpi")
+
+[node name="Track" type="Sprite2D" parent="."]
+position = Vector2(577, 324)
+scale = Vector2(0.697143, 0.693413)
+texture = ExtResource("1_fv5kj")

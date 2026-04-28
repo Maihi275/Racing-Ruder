@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://cjyc8wl8b2kjd"]
+
+[ext_resource type="Script" uid="uid://bn6d4lrfpnj0v" path="res://Scenes/Track/Track.gd" id="1_0do6f"]
+[ext_resource type="Texture2D" uid="uid://dse66hhdlvl0d" path="res://Assets/Images/MetalBg.png" id="1_0ld5s"]
+[ext_resource type="Texture2D" uid="uid://y8hkki1xfqn6" path="res://Assets/Images/Monza.png" id="1_fv5kj"]
+[ext_resource type="PackedScene" uid="uid://by5hgr15726ll" path="res://Scenes/Track/Car.tscn" id="3_0do6f"]
+
+[node name="Track" type="Node"]
+script = ExtResource("1_0do6f")
+
+[node name="Backround" type="Sprite2D" parent="."]
+position = Vector2(605, 319)
+scale = Vector2(0.84, 0.84)
+texture = ExtResource("1_0ld5s")
+
+[node name="Track" type="Sprite2D" parent="."]
+position = Vector2(590, 322)
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("1_fv5kj")
+
+[node name="Car" parent="Track" instance=ExtResource("3_0do6f")]
+position = Vector2(-501.667, -396.667)
+
+[node name="TrackCollision" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="Inside Collision" type="CollisionPolygon2D" parent="TrackCollision"]
+polygon = PackedVector2Array(476, 119, 386, 274, 410, 306, 466, 325, 468, 378, 504, 399, 832, 320, 898, 510, 603, 528, 514, 447, 417, 525, 279, 491, 263, 307, 300, 116)
+
+[node name="Outside Collision" type="CollisionPolygon2D" parent="TrackCollision"]
+polygon = PackedVector2Array(594, 37, 603, 54, 609, 72, 597, 105, 563, 155, 509, 239, 537, 251, 558, 267, 562, 295, 872, 218, 903, 237, 953, 379, 998, 525, 1004, 569, 993, 588, 978, 599, 878, 605, 741, 612, 570, 617, 506, 559, 442, 617, 385, 609, 305, 589, 240, 573, 205, 556, 178, 441, 173, 323, 183, 235, 208, 121, 227, 41, 253, 28, 403, 25, 525, 26, 589, 33, 606, -194, -147, -148, -134, 808, 1337, 766, 1360, -93, 1001, -203, 643, -192)
+
+[connection signal="area_entered" from="TrackCollision" to="." method="_on_track_collision_area_entered"]
