@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfrd7o86x0q3t"]
+
+[ext_resource type="Texture2D" uid="uid://yyr47gbb1gym" path="res://Assets/Images/Oil.png" id="1_ojiq0"]
+
+[node name="Oil" type="Area2D"]
+scale = Vector2(0.4, 0.4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ojiq0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
