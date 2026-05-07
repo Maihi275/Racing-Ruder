@@ -1,15 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://cjyc8wl8b2kjd"]
+[gd_scene load_steps=7 format=3 uid="uid://cjyc8wl8b2kjd"]
 
 [ext_resource type="Script" uid="uid://bn6d4lrfpnj0v" path="res://Scenes/Track/Track.gd" id="1_0do6f"]
 [ext_resource type="Texture2D" uid="uid://dse66hhdlvl0d" path="res://Assets/Images/MetalBg.png" id="1_0ld5s"]
 [ext_resource type="Texture2D" uid="uid://y8hkki1xfqn6" path="res://Assets/Images/Monza.png" id="1_fv5kj"]
 [ext_resource type="PackedScene" uid="uid://by5hgr15726ll" path="res://Scenes/Track/Car.tscn" id="3_0do6f"]
+[ext_resource type="PackedScene" uid="uid://dm2ir5y6bmdle" path="res://Scenes/OilDropper/OilDropper.tscn" id="5_vfgym"]
 
 [sub_resource type="Curve2D" id="Curve2D_0do6f"]
 _data = {
-"points": PackedVector2Array(5.45455, 25.4545, -5.45455, -25.4545, 344, 67, 0, 0, 0, 0, 545, 69, -28.1818, -6.36364, 28.1818, 6.36364, 454, 269, -2.72727, -8.18182, 2.72727, 8.18182, 521, 293, -26.3636, -15.4545, 26.3636, 15.4545, 511, 354, -60.9091, -36.3636, 60.9091, 36.3636, 861, 265, 15.4545, -67.2727, -15.4545, 67.2727, 962, 557, 65.4545, 1.81818, -65.4545, -1.81818, 588, 567, 42.7273, 0.909091, -42.7273, -0.909091, 512, 507, 35.4545, 0, -35.4545, 0, 428, 567, 44, 52, -44, -52, 258, 509, 0, 0, 0, 0, 200, 291, -0.909091, 19.0909, 0.909091, -19.0909, 237, 129, -1.81818, -49.0909, 1.81818, 49.0909, 340, 68, 0, 0, 0, 0, 344, 67)
+"points": PackedVector2Array(-56.5454, -1.5455, 56.5454, 1.5455, 390, 55, -86, -2, 86, 2, 468, 54, 3, -35, -3, 35, 543, 86, -39.1818, -38.2636, 39.1818, 38.2636, 454, 269, -36.8273, -20.2818, 36.8273, 20.2818, 522, 286, -65.9636, 17.5455, 65.9636, -17.5455, 575, 342, -60.9091, -36.3636, 60.9091, 36.3636, 852, 282, 0, 0, 0, 0, 920, 411, 0, 0, 0, 0, 932, 463, 15.4545, -67.2727, -15.4545, 67.2727, 926, 522, 0, 0, 0, 0, 895, 565, 0, 0, 0, 0, 850, 564, 0, 0, 0, 0, 772, 567, 65.4545, 1.81818, -65.4545, -1.81818, 588, 567, 42.7273, 0.909091, -42.7273, -0.909091, 512, 507, 35.4545, 0, -35.4545, 0, 428, 567, 44, 52, -44, -52, 258, 509, 0, 0, 0, 0, 231, 292, -0.909091, 19.0909, 0.909091, -19.0909, 249, 143, -63.8182, 5.9091, 63.8182, -5.9091, 307, 59, 0, 0, 0, 0, 365, 57, 0, 0, 0, 0, 366, 55)
 }
-point_count = 15
+point_count = 22
 
 [node name="Track" type="Node"]
 script = ExtResource("1_0do6f")
@@ -38,6 +39,13 @@ polygon = PackedVector2Array(476, 119, 386, 274, 410, 306, 466, 325, 468, 378, 5
 polygon = PackedVector2Array(594, 37, 603, 54, 609, 72, 597, 105, 563, 155, 509, 239, 537, 251, 558, 267, 562, 295, 872, 218, 903, 237, 953, 379, 998, 525, 1004, 569, 993, 588, 978, 599, 878, 605, 741, 612, 570, 617, 506, 559, 442, 617, 385, 609, 305, 589, 240, 573, 205, 556, 178, 441, 173, 323, 183, 235, 208, 121, 227, 41, 253, 28, 403, 25, 525, 26, 589, 33, 606, -194, -147, -148, -134, 808, 1337, 766, 1360, -93, 1001, -203, 643, -192)
 
 [node name="TrackPath" type="Path2D" parent="."]
+position = Vector2(-6, 7)
 curve = SubResource("Curve2D_0do6f")
+
+[node name="OilDropper" parent="TrackPath" instance=ExtResource("5_vfgym")]
+position = Vector2(390, 55)
+rotation = 0.0273252
+
+[node name="OilContainer" type="Node" parent="."]
 
 [connection signal="area_entered" from="TrackCollision" to="." method="_on_track_collision_area_entered"]
